@@ -1,17 +1,29 @@
 Goods = []
-nGoods = 0
+
 while True:
+    name = input("Введите название товара: ")
+    price = int(input("Введите цену товара: "))
+    quantity = int(input("Введите количество товара: "))
+    unit = input("Введите ед.измерения: ")
+    Goods.append((len(Goods) + 1, {"название": name, "цена": price, "количество": quantity, "eд. изм.": unit}))
     yn = input("Хотите продолжить? (да/нет): ")
+    while yn != "да" and yn != "нет":
+        print("Попробуйте еще раз")
+        yn = input("Хотите продолжить? (да/нет): ")
     if yn == "нет":
         break
-    elif yn == "да":
-        nGoods += 1
-        name = input("Введите название товара: ")
-        price = int(input("Введите цену товара: "))
-        quantity = int(input("Введите количество товара: "))
-        unit = input("Введите ед.измерения: ")
-        Goods.append((nGoods, {"название": name, "цена": price, "количество": quantity, "eд": unit}))
-    else:
-        print("Попробуйте еще раз")
-#for g in Goods:
 
+name = []
+price = []
+quantity = []
+unit = []
+
+for g in range(len(Goods)):
+    name.append(Goods[g][1].get("название"))
+    price.append(Goods[g][1].get("цена"))
+    quantity.append(Goods[g][1].get("количество"))
+    unit.append(Goods[g][1].get("ед. изм."))
+
+Analyt = {"название": name, "цена": price, "количество": quantity, "ед. изм.": unit}
+
+print(Analyt)
